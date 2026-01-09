@@ -5,9 +5,7 @@ import pytest
 from opendpp.core.engine import run_conformance_check
 
 
-PAYLOADS = sorted(
-    Path("profiles/battery-pass/testvectors/positive").glob("*.json")
-)
+PAYLOADS = sorted(Path("profiles/battery-pass/testvectors/positive").glob("*.json"))
 
 
 @pytest.mark.parametrize("payload_path", PAYLOADS)

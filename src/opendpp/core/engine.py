@@ -245,7 +245,7 @@ def run_conformance_check(
             if artifact.artifact_type == ArtifactType.DPP_PAYLOAD:
                 if artifact.content_type and "ld+json" in artifact.content_type:
                     validate_shacl(artifact, shape, report)
-                elif b'\"@context\"' in artifact.raw_bytes:
+                elif b'"@context"' in artifact.raw_bytes:
                     validate_shacl(artifact, shape, report)
                 else:
                     report.add_finding(
