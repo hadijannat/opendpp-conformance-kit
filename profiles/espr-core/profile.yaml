@@ -1,0 +1,15 @@
+id: espr-core
+version: 1.0.0
+description: Core ESPR conformance profile for Digital Product Passports.
+entrypoint_media_types:
+  - application/json
+  - application/ld+json
+artifacts:
+  schemas:
+    - profiles/espr-core/schemas/dpp_core.schema.json
+  rules:
+    - profiles/espr-core/rules/core_policy.yaml
+trust:
+  allowed_issuers: [] # any issuer for now
+  vc_formats:
+    - vc+jwt

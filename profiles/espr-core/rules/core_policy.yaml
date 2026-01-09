@@ -1,0 +1,11 @@
+rules:
+  - id: ESPR-01
+    name: Mandatory Identifier
+    severity: error
+    selector: "$.id"
+    assertion: "exists"
+    message: "DPP must have a unique identifier (@id or id)."
+  - id: ESPR-02
+    name: Public Accessibility
+    severity: warning
+    message: "DPP endpoint should be publicly accessible without authentication for core metadata."
