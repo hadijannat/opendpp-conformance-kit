@@ -1,7 +1,13 @@
 rules:
   - id: BP-01
-    name: Mandatory Identifier
+    name: Product Identifier
     severity: error
-    selector: "$.id"
+    selector: "$.productIdentifier"
     assertion: "exists"
-    message: "BatteryPass payload must include an id."
+    message: "BatteryPass payload must include productIdentifier."
+  - id: BP-02
+    name: Battery Passport Identifier
+    severity: error
+    selector: "$.batteryPassportIdentifier"
+    assertion: "exists"
+    message: "BatteryPass payload must include batteryPassportIdentifier."

@@ -1,18 +1,20 @@
 id: battery-pass
-version: 0.1.0
-description: BatteryPass profile scaffold (schema + JSON-LD + SHACL hooks).
+version: 1.2.0
+description: BatteryPass GeneralProductInformation 1.2.0 profile (schema + OpenAPI + RDF context).
 entrypoint_media_types:
   - application/json
   - application/ld+json
 artifacts:
   schemas:
-    - schemas/battery_pass.schema.json
-  shapes:
-    - shapes/battery_pass.shapes.ttl
+    - schemas/GeneralProductInformation-schema.json
+  shapes: []
+  openapi:
+    - openapi/GeneralProductInformation_openapi3_0.yaml
   rules:
     - rules/battery_policy.yaml
-  contexts: []
-  openapi: []
+  contexts:
+    - contexts/GeneralProductInformation-ld.json
+    - contexts/GeneralProductInformation.ttl
 trust:
   allowed_issuers: []
   vc_formats:

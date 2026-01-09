@@ -41,7 +41,10 @@ def verify_vc_jwt(
 
         did_doc = resolve_did_web(iss)
         vm = get_verification_key(did_doc, kid)
-        public_key = jwk.import_key(vm.get("publicKeyJwk"))
+        public_key_jwk = vm.get("publicKeyJwk")
+        if not public_key_jwk:
+            raise ValueError("No publicKeyJwk found in verification method")
+        public_key = jwk.import_key(public_key_jwk)
 
         result = jwt.decode(token, public_key, algorithms=[alg] if alg else None)
 

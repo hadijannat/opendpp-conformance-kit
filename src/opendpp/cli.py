@@ -11,7 +11,7 @@ from opendpp.core.report import ConformanceReport
 
 
 @click.group()
-def cli():
+def cli() -> None:
     """OpenDPP Conformance Kit CLI (dppctl)"""
     logging.basicConfig(level=logging.INFO)
 
@@ -28,7 +28,9 @@ def cli():
     default="report_artifacts",
     help="Directory to store fetched artifacts.",
 )
-def check(target, profile, output, html_output, artifacts_dir):
+def check(
+    target: str, profile: str, output: str, html_output: str, artifacts_dir: str
+) -> None:
     """Runs a conformance check against a target (URL, DID, File)."""
     click.echo(f"Running conformance check against: {target} using profile: {profile}")
 
@@ -67,7 +69,15 @@ def check(target, profile, output, html_output, artifacts_dir):
     default="conformance.vc.json",
     help="Output path for decoded VC JSON.",
 )
-def issue_attestation(report_path, issuer, jwk_path, alg, kid, output, decoded_output):
+def issue_attestation(
+    report_path: str,
+    issuer: str,
+    jwk_path: str,
+    alg: str,
+    kid: str | None,
+    output: str,
+    decoded_output: str,
+) -> None:
     """Issue a VC-JWT conformance attestation from a report.json."""
     try:
         report_json = Path(report_path).read_text(encoding="utf-8")

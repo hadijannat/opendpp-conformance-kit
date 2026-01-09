@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import mimetypes
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
 from opendpp.core.artifact import Artifact, ArtifactType
 from opendpp.core.report import ConformanceReport, Severity
@@ -18,7 +18,7 @@ from opendpp.validate.syntax.openapi_contract import validate_openapi_contract
 from opendpp.validate.syntax.json_schema import validate_json_schema
 
 
-def _looks_like_aas_json(data: dict) -> bool:
+def _looks_like_aas_json(data: dict[str, Any]) -> bool:
     return any(
         key in data
         for key in ["assetAdministrationShells", "submodels", "conceptDescriptions"]
@@ -207,11 +207,16 @@ def run_conformance_check(
                 try:
                     graph = aas_to_rdf(artifact)
                     rdf_bytes = graph.serialize(format="turtle")
+                    rdf_raw = (
+                        rdf_bytes
+                        if isinstance(rdf_bytes, bytes)
+                        else rdf_bytes.encode("utf-8")
+                    )
                     rdf_artifact = Artifact.from_bytes(
                         uri=f"{artifact.uri}#rdf",
                         content_type="text/turtle",
                         artifact_type=ArtifactType.RDF_GRAPH,
-                        raw_bytes=rdf_bytes,
+                        raw_bytes=rdf_raw,
                     )
                     _persist_artifact(rdf_artifact, output_dir)
                     report.add_artifact(

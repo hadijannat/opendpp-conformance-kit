@@ -27,8 +27,7 @@ def issue_vc_jwt(
     kid: str | None = None,
 ) -> tuple[str, Dict[str, Any]]:
     key = jwk.import_key(jwk_data)
-    if kid:
-        key.kid = kid
+    effective_kid = kid if kid else getattr(key, "kid", None)
 
     report_hash = _report_digest(report)
 
@@ -63,9 +62,9 @@ def issue_vc_jwt(
         "vc": vc,
     }
 
-    header = {"alg": alg}
-    if key.kid:
-        header["kid"] = key.kid
+    header: Dict[str, Any] = {"alg": alg}
+    if effective_kid:
+        header["kid"] = effective_kid
 
     token = jwt.encode(header, claims, key, algorithms=[alg])
     return token, vc
@@ -73,4 +72,5 @@ def issue_vc_jwt(
 
 def load_jwk(path: str) -> Dict[str, Any]:
     with open(path, "r", encoding="utf-8") as handle:
-        return json.load(handle)
+        data: Dict[str, Any] = json.load(handle)
+        return data
