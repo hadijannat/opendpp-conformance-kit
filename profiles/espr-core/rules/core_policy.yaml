@@ -2,7 +2,9 @@ rules:
   - id: ESPR-01
     name: Mandatory Identifier
     severity: error
-    selector: "$.id"
+    selector:
+      - "$.id"
+      - "$['@id']"
     assertion: "exists"
     message: "DPP must have a unique identifier (@id or id)."
   - id: ESPR-02

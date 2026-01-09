@@ -52,8 +52,11 @@ class PolicyEngine:
 
         try:
             data = json.loads(target.raw_bytes)
-            expr = jsonpath_parse(selector)
-            matches = [m.value for m in expr.find(data)]
+            selectors = selector if isinstance(selector, list) else [selector]
+            matches: list[Any] = []
+            for sel in selectors:
+                expr = jsonpath_parse(sel)
+                matches.extend(m.value for m in expr.find(data))
         except Exception as exc:
             report.add_finding(
                 rule_id=rule_id,
