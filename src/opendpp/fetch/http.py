@@ -1,18 +1,10 @@
 from __future__ import annotations
 
-import hashlib
-from dataclasses import dataclass
 from typing import Optional
 
 import requests
 
-
-@dataclass
-class Artifact:
-    uri: str
-    content_type: Optional[str]
-    sha256: str
-    artifact_type: str
+from opendpp.core.artifact import Artifact, ArtifactType
 
 
 class HttpFetcher:
@@ -27,19 +19,18 @@ class HttpFetcher:
         response = requests.get(url, headers=headers, timeout=self.timeout, allow_redirects=True)
         response.raise_for_status()
 
-        content = response.content or b""
-        digest = hashlib.sha256(content).hexdigest()
         content_type = response.headers.get("Content-Type")
-        artifact_type = "binary"
+        artifact_type = ArtifactType.DPP_PAYLOAD
         if content_type:
             if "application/ld+json" in content_type:
-                artifact_type = "jsonld"
+                artifact_type = ArtifactType.DPP_PAYLOAD
             elif "application/json" in content_type:
-                artifact_type = "json"
+                artifact_type = ArtifactType.DPP_PAYLOAD
 
-        return Artifact(
+        return Artifact.from_bytes(
             uri=response.url,
             content_type=content_type,
-            sha256=digest,
             artifact_type=artifact_type,
+            raw_bytes=response.content or b"",
+            metadata={"status_code": response.status_code, "headers": dict(response.headers)},
         )

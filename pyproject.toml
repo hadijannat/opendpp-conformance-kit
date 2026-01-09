@@ -17,6 +17,8 @@ dependencies = [
     "pydash>=8.0.0",
     "pyshacl>=0.25.0",
     "pydantic>=2.5.0",
+    "pyld>=2.0.4",
+    "jsonschema>=4.18.0",
     "requests>=2.31.0",
     "joserfc>=0.9.0",
     "cryptography>=41.0.0",
@@ -25,6 +27,8 @@ dependencies = [
     "pyyaml>=6.0.0",
     "jsonpath-ng>=1.6.0",
     "aas-core3.0>=1.0.0",
+    "pyld>=2.0.0",
+    "jsonschema>=4.17.0",
 ]
 
 [project.scripts]

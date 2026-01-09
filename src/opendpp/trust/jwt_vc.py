@@ -1,63 +1,49 @@
 import base64
 import json
-from typing import Any, Optional
+from typing import Any, Dict, Optional
 
-from joserfc import jwk, jwt
+from joserfc import jwt
+from joserfc import jwk
 
 from opendpp.core.artifact import Artifact
 from opendpp.core.report import ConformanceReport, Severity
-from opendpp.trust.did import get_verification_key, resolve_did_web
+from opendpp.trust.did import resolve_did_web, get_verification_key
 
 
-def _decode_jwt_part(part: str) -> dict[str, Any]:
-    """Decode a base64url-encoded JWT part (header or payload)."""
-    # Add padding if needed
-    padding = 4 - len(part) % 4
-    if padding != 4:
-        part += "=" * padding
-    decoded = base64.urlsafe_b64decode(part)
-    result: dict[str, Any] = json.loads(decoded)
-    return result
+def _b64url_decode(data: str) -> bytes:
+    padded = data + "=" * (-len(data) % 4)
+    return base64.urlsafe_b64decode(padded.encode("utf-8"))
 
 
-def _peek_jwt(token: str) -> tuple[dict[str, Any], dict[str, Any]]:
-    """Extract header and claims from a JWT without verification."""
+def _peek_jwt_header_and_claims(token: str) -> tuple[dict[str, Any], dict[str, Any]]:
     parts = token.split(".")
-    if len(parts) != 3:
-        raise ValueError("Invalid JWT format: expected 3 parts")
-    header = _decode_jwt_part(parts[0])
-    claims = _decode_jwt_part(parts[1])
+    if len(parts) < 2:
+        raise ValueError("Invalid JWT format")
+    header = json.loads(_b64url_decode(parts[0]))
+    claims = json.loads(_b64url_decode(parts[1]))
     return header, claims
 
 
 def verify_vc_jwt(
     artifact: Artifact, report: ConformanceReport
-) -> Optional[dict[str, Any]]:
+) -> Optional[Dict[str, Any]]:
     """Verifies a VC secured as a JWT (RFC 7519 / W3C VC JOSE)."""
     try:
-        token = artifact.raw_bytes.decode("utf-8").strip()
+        token = artifact.raw_bytes.decode("utf-8")
 
-        # 1. Peek at JWT to get header and claims without verification
-        header, claims = _peek_jwt(token)
+        header, claims = _peek_jwt_header_and_claims(token)
         kid = header.get("kid")
+        alg = header.get("alg")
 
-        # 2. Extract issuer from payload
         iss = claims.get("iss")
         if not iss:
             raise ValueError("Missing 'iss' claim in JWT")
 
-        # 3. Resolve DID
         did_doc = resolve_did_web(iss)
-
-        # 4. Get key
         vm = get_verification_key(did_doc, kid)
-        public_key_jwk = vm.get("publicKeyJwk")
-        if not public_key_jwk:
-            raise ValueError("No publicKeyJwk found in verification method")
-        public_key = jwk.import_key(public_key_jwk)
+        public_key = jwk.import_key(vm.get("publicKeyJwk"))
 
-        # 5. Verify the JWT signature
-        result = jwt.decode(token, public_key)
+        result = jwt.decode(token, public_key, algorithms=[alg] if alg else None)
 
         report.add_finding(
             rule_id="TRUST-VC-JWT-01",
@@ -66,7 +52,7 @@ def verify_vc_jwt(
             evidence={"artifact_hash": artifact.sha256, "issuer": iss},
         )
 
-        return dict(result.claims)
+        return result.claims
 
     except Exception as e:
         report.add_finding(
