@@ -1,4 +1,5 @@
 import re
+from enum import Enum
 from typing import Optional, Union, Tuple
 from pathlib import Path
 
