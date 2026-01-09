@@ -61,9 +61,7 @@ def check(target, profile, output, html_output, artifacts_dir):
 @click.option("--jwk", "jwk_path", required=True, help="Path to issuer private JWK.")
 @click.option("--alg", default="ES256", help="Signing algorithm (default: ES256).")
 @click.option("--kid", default=None, help="Override key id (kid) in JWT header.")
-@click.option(
-    "--output", default="conformance.vc.jwt", help="Output path for VC-JWT."
-)
+@click.option("--output", default="conformance.vc.jwt", help="Output path for VC-JWT.")
 @click.option(
     "--decoded-output",
     default="conformance.vc.json",
@@ -82,9 +80,7 @@ def issue_attestation(report_path, issuer, jwk_path, alg, kid, output, decoded_o
         Path(output).write_text(token, encoding="utf-8")
 
         decoded = {"vc": vc, "jwt": token}
-        Path(decoded_output).write_text(
-            json.dumps(decoded, indent=2), encoding="utf-8"
-        )
+        Path(decoded_output).write_text(json.dumps(decoded, indent=2), encoding="utf-8")
 
         click.echo(f"VC-JWT written to: {output}")
         click.echo(f"Decoded JSON written to: {decoded_output}")
