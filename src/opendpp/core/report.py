@@ -46,7 +46,9 @@ class ConformanceReport(BaseModel):
         evidence: dict[str, Any] | None = None,
     ) -> None:
         self.findings.append(
-            Finding(rule_id=rule_id, severity=severity, message=message, evidence=evidence)
+            Finding(
+                rule_id=rule_id, severity=severity, message=message, evidence=evidence
+            )
         )
 
     def add_artifact(

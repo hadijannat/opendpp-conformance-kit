@@ -8,7 +8,9 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from opendpp.core.report import ConformanceReport
 
 
-def render_report_html(report: ConformanceReport, template_path: Optional[str] = None) -> str:
+def render_report_html(
+    report: ConformanceReport, template_path: Optional[str] = None
+) -> str:
     base_dir = Path(__file__).parent
     if template_path:
         loader = FileSystemLoader(Path(template_path).parent)

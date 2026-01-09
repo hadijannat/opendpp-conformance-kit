@@ -14,6 +14,7 @@ from opendpp.resolve.parse_input import InputType, parse_input
 from opendpp.twin.aas.aas_to_rdf import aas_to_rdf
 from opendpp.twin.aas.aasx import extract_aasx, parse_aas_json
 from opendpp.validate.semantic.shacl import validate_shacl
+from opendpp.validate.syntax.openapi_contract import validate_openapi_contract
 from opendpp.validate.syntax.json_schema import validate_json_schema
 
 
@@ -91,7 +92,9 @@ def _ingest_target(target: str) -> tuple[list[Artifact], str]:
     return artifacts, canonical
 
 
-def _load_artifacts_from_paths(paths: Iterable[str], artifact_type: ArtifactType) -> list[Artifact]:
+def _load_artifacts_from_paths(
+    paths: Iterable[str], artifact_type: ArtifactType
+) -> list[Artifact]:
     loaded: list[Artifact] = []
     for path in paths:
         raw_bytes = Path(path).read_bytes()
@@ -150,6 +153,14 @@ def run_conformance_check(
     # AAS parse sanity checks
     for artifact in artifacts:
         if artifact.artifact_type == ArtifactType.AAS_PAYLOAD:
+            if artifact.content_type and "json" not in artifact.content_type:
+                report.add_finding(
+                    rule_id="AAS-JSON-SKIP",
+                    severity=Severity.WARNING,
+                    message="Skipping AAS JSON parse for non-JSON payload",
+                    evidence={"artifact_hash": artifact.sha256},
+                )
+                continue
             try:
                 parse_aas_json(artifact)
                 report.add_finding(
@@ -174,6 +185,15 @@ def run_conformance_check(
         for artifact in artifacts:
             if artifact.artifact_type == ArtifactType.DPP_PAYLOAD:
                 validate_json_schema(artifact, schema, report)
+
+    # OpenAPI validation (optional)
+    openapi_artifacts = _load_artifacts_from_paths(
+        manifest.artifacts.openapi, ArtifactType.OPENAPI_DOC
+    )
+    for spec in openapi_artifacts:
+        for artifact in artifacts:
+            if artifact.artifact_type == ArtifactType.DPP_PAYLOAD:
+                validate_openapi_contract(artifact, spec, report)
 
     # SHACL validation
     shape_artifacts = _load_artifacts_from_paths(

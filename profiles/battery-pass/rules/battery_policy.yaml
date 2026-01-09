@@ -1,0 +1,7 @@
+rules:
+  - id: BP-01
+    name: Mandatory Identifier
+    severity: error
+    selector: "$.id"
+    assertion: "exists"
+    message: "BatteryPass payload must include an id."

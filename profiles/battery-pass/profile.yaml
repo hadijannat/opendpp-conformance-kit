@@ -1,0 +1,19 @@
+id: battery-pass
+version: 0.1.0
+description: BatteryPass profile scaffold (schema + JSON-LD + SHACL hooks).
+entrypoint_media_types:
+  - application/json
+  - application/ld+json
+artifacts:
+  schemas:
+    - schemas/battery_pass.schema.json
+  shapes:
+    - shapes/battery_pass.shapes.ttl
+  rules:
+    - rules/battery_policy.yaml
+  contexts: []
+  openapi: []
+trust:
+  allowed_issuers: []
+  vc_formats:
+    - vc+jwt

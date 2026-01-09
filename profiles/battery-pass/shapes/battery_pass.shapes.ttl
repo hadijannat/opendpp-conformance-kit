@@ -1,0 +1,4 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Scaffold shape with no constraints; replace with BatteryPass shapes.
+[] a sh:NodeShape .

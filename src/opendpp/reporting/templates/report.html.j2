@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>OpenDPP Conformance Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; color: #222; }
+    h1, h2 { margin-bottom: 0.3rem; }
+    table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background: #f5f5f5; }
+    .status-pass { color: #0a7; font-weight: bold; }
+    .status-fail { color: #c00; font-weight: bold; }
+    .severity-info { color: #3a6; }
+    .severity-warning { color: #c90; }
+    .severity-error { color: #c00; font-weight: bold; }
+    code { background: #f6f6f6; padding: 2px 4px; }
+  </style>
+</head>
+<body>
+  <h1>OpenDPP Conformance Report</h1>
+  <p>
+    Target: <code>{{ report.target }}</code><br />
+    Profile: <code>{{ report.profile_id }}</code> ({{ report.profile_version }})<br />
+    Created: {{ report.created_at }}<br />
+    Status:
+    {% if report.passed %}
+      <span class="status-pass">PASS</span>
+    {% else %}
+      <span class="status-fail">FAIL</span>
+    {% endif %}
+  </p>
+
+  <h2>Artifacts</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>URI</th>
+        <th>Type</th>
+        <th>Content Type</th>
+        <th>SHA-256</th>
+        <th>Size (bytes)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for artifact in report.artifacts %}
+      <tr>
+        <td><code>{{ artifact.uri }}</code></td>
+        <td>{{ artifact.artifact_type }}</td>
+        <td>{{ artifact.content_type }}</td>
+        <td><code>{{ artifact.sha256 }}</code></td>
+        <td>{{ artifact.size }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Findings</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for finding in report.findings %}
+      <tr>
+        <td><code>{{ finding.rule_id }}</code></td>
+        <td class="severity-{{ finding.severity }}">{{ finding.severity }}</td>
+        <td>{{ finding.message }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

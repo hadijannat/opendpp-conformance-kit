@@ -6,6 +6,7 @@ from typing import Optional, Dict, Any, List
 
 from pydantic import BaseModel, Field
 
+
 class ArtifactType(str, Enum):
     DPP_PAYLOAD = "dpp_payload"
     AAS_PAYLOAD = "aas_payload"
@@ -16,6 +17,7 @@ class ArtifactType(str, Enum):
     RDF_GRAPH = "rdf_graph"
     SHACL_SHAPES = "shacl_shapes"
     AASX_PACKAGE = "aasx_package"
+
 
 class Artifact(BaseModel):
     uri: str
@@ -45,6 +47,7 @@ class Artifact(BaseModel):
             metadata=metadata or {},
         )
 
+
 class ProfileArtifacts(BaseModel):
     schemas: List[str] = Field(default_factory=list)
     shapes: List[str] = Field(default_factory=list)
@@ -65,6 +68,7 @@ class Profile(BaseModel):
     entrypoint_media_types: List[str] = Field(default_factory=list)
     artifacts: ProfileArtifacts = Field(default_factory=ProfileArtifacts)
     trust: ProfileTrust = Field(default_factory=ProfileTrust)
+
 
 class RunContext(BaseModel):
     profile: Profile

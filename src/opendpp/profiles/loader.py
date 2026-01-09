@@ -48,9 +48,17 @@ def _resolve_list(base_dir: Path, paths: Iterable[str]) -> list[str]:
 
 def resolve_artifact_paths(profile: LoadedProfile) -> LoadedProfile:
     manifest = profile.manifest
-    manifest.artifacts.schemas = _resolve_list(profile.base_dir, manifest.artifacts.schemas)
-    manifest.artifacts.shapes = _resolve_list(profile.base_dir, manifest.artifacts.shapes)
-    manifest.artifacts.openapi = _resolve_list(profile.base_dir, manifest.artifacts.openapi)
+    manifest.artifacts.schemas = _resolve_list(
+        profile.base_dir, manifest.artifacts.schemas
+    )
+    manifest.artifacts.shapes = _resolve_list(
+        profile.base_dir, manifest.artifacts.shapes
+    )
+    manifest.artifacts.openapi = _resolve_list(
+        profile.base_dir, manifest.artifacts.openapi
+    )
     manifest.artifacts.rules = _resolve_list(profile.base_dir, manifest.artifacts.rules)
-    manifest.artifacts.contexts = _resolve_list(profile.base_dir, manifest.artifacts.contexts)
+    manifest.artifacts.contexts = _resolve_list(
+        profile.base_dir, manifest.artifacts.contexts
+    )
     return profile

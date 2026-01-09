@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from typing import Optional
 
 import requests
 
@@ -16,7 +15,9 @@ class HttpFetcher:
             "Accept": "application/ld+json, application/json, */*;q=0.1",
             "User-Agent": "opendpp-conformance-kit/0.1",
         }
-        response = requests.get(url, headers=headers, timeout=self.timeout, allow_redirects=True)
+        response = requests.get(
+            url, headers=headers, timeout=self.timeout, allow_redirects=True
+        )
         response.raise_for_status()
 
         content_type = response.headers.get("Content-Type")
@@ -32,5 +33,8 @@ class HttpFetcher:
             content_type=content_type,
             artifact_type=artifact_type,
             raw_bytes=response.content or b"",
-            metadata={"status_code": response.status_code, "headers": dict(response.headers)},
+            metadata={
+                "status_code": response.status_code,
+                "headers": dict(response.headers),
+            },
         )

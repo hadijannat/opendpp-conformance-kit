@@ -6,9 +6,12 @@ entrypoint_media_types:
   - application/ld+json
 artifacts:
   schemas:
-    - profiles/espr-core/schemas/dpp_core.schema.json
+    - schemas/dpp_core.schema.json
+  shapes: []
+  openapi: []
   rules:
-    - profiles/espr-core/rules/core_policy.yaml
+    - rules/core_policy.yaml
+  contexts: []
 trust:
   allowed_issuers: [] # any issuer for now
   vc_formats:
