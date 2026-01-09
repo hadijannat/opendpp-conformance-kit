@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from opendpp.core.artifact import Artifact, ArtifactType
+from opendpp.core.codec import decode_json_bytes
 from opendpp.core.report import ConformanceReport, Severity
 from opendpp.fetch.http import HttpFetcher
 from opendpp.policy.espr_core import PolicyEngine
@@ -36,11 +37,11 @@ def _artifact_type_from_path(path: Path, raw_bytes: bytes) -> ArtifactType:
         return ArtifactType.AASX_PACKAGE
     if suffix in {".ttl", ".nq", ".nt"}:
         return ArtifactType.RDF_GRAPH
-    if suffix in {".xml"}:
+    if suffix in {".xml", ".aas"}:
         return ArtifactType.AAS_PAYLOAD
     if suffix in {".json", ".jsonld", ".json-ld"}:
         try:
-            data = json.loads(raw_bytes)
+            data = json.loads(decode_json_bytes(raw_bytes))
             if isinstance(data, dict) and _looks_like_aas_json(data):
                 return ArtifactType.AAS_PAYLOAD
         except Exception:
@@ -68,6 +69,8 @@ def _persist_artifact(artifact: Artifact, output_dir: Path) -> None:
 def _load_file_artifact(path: Path) -> Artifact:
     raw_bytes = path.read_bytes()
     content_type = _guess_content_type(path)
+    if content_type is None and raw_bytes.lstrip().startswith(b"<"):
+        content_type = "application/xml"
     artifact_type = _artifact_type_from_path(path, raw_bytes)
     return Artifact.from_bytes(
         uri=str(path),
@@ -181,10 +184,48 @@ def run_conformance_check(
     schema_artifacts = _load_artifacts_from_paths(
         manifest.artifacts.schemas, ArtifactType.JSON_SCHEMA
     )
-    for schema in schema_artifacts:
-        for artifact in artifacts:
-            if artifact.artifact_type == ArtifactType.DPP_PAYLOAD:
-                validate_json_schema(artifact, schema, report)
+    for artifact in artifacts:
+        if artifact.artifact_type != ArtifactType.DPP_PAYLOAD:
+            continue
+        if not schema_artifacts:
+            continue
+        if len(schema_artifacts) == 1:
+            validate_json_schema(artifact, schema_artifacts[0], report)
+            continue
+
+        best_errors: list[dict[str, str]] | None = None
+        best_schema: Artifact | None = None
+        matched = False
+        for schema in schema_artifacts:
+            errors = validate_json_schema(artifact, schema, report, record=False)
+            if not errors:
+                matched = True
+                report.add_finding(
+                    rule_id="JS-VAL-OK",
+                    severity=Severity.INFO,
+                    message=f"JSON Schema validation passed for {schema.uri}",
+                    evidence={
+                        "artifact_hash": artifact.sha256,
+                        "schema_hash": schema.sha256,
+                    },
+                )
+                break
+            if best_errors is None or len(errors) < len(best_errors):
+                best_errors = errors
+                best_schema = schema
+
+        if not matched and best_schema is not None:
+            for error in best_errors or []:
+                report.add_finding(
+                    rule_id="JS-VAL-01",
+                    severity=Severity.ERROR,
+                    message=f"JSON Schema validation error: {error['message']}",
+                    evidence={
+                        "location": error.get("location", "$"),
+                        "artifact_hash": artifact.sha256,
+                        "schema_hash": best_schema.sha256,
+                    },
+                )
 
     # OpenAPI validation (optional)
     openapi_artifacts = _load_artifacts_from_paths(
@@ -202,8 +243,26 @@ def run_conformance_check(
     for shape in shape_artifacts:
         for artifact in artifacts:
             if artifact.artifact_type == ArtifactType.DPP_PAYLOAD:
-                validate_shacl(artifact, shape, report)
+                if artifact.content_type and "ld+json" in artifact.content_type:
+                    validate_shacl(artifact, shape, report)
+                elif b'\"@context\"' in artifact.raw_bytes:
+                    validate_shacl(artifact, shape, report)
+                else:
+                    report.add_finding(
+                        rule_id="SHACL-SKIP",
+                        severity=Severity.WARNING,
+                        message="Skipping SHACL for non-JSON-LD payload",
+                        evidence={"artifact_hash": artifact.sha256},
+                    )
             elif artifact.artifact_type == ArtifactType.AAS_PAYLOAD:
+                if artifact.content_type and "json" not in artifact.content_type:
+                    report.add_finding(
+                        rule_id="AAS-SHACL-SKIP",
+                        severity=Severity.WARNING,
+                        message="Skipping SHACL for non-JSON AAS payload",
+                        evidence={"artifact_hash": artifact.sha256},
+                    )
+                    continue
                 try:
                     graph = aas_to_rdf(artifact)
                     rdf_bytes = graph.serialize(format="turtle")

@@ -6,6 +6,7 @@ from rdflib.namespace import RDF
 from aas_core3 import jsonization as aas_json
 
 from opendpp.core.artifact import Artifact
+from opendpp.core.codec import decode_json_bytes
 
 AAS = Namespace("https://admin-shell.io/aas/3/0/")
 
@@ -13,7 +14,9 @@ AAS = Namespace("https://admin-shell.io/aas/3/0/")
 def aas_to_rdf(artifact: Artifact) -> Graph:
     """Converts a subset of AAS environment to RDF for validation."""
     # Pragmatic approach: extract key IDs and Submodel structure
-    env = aas_json.environment_from_jsonable(json.loads(artifact.raw_bytes))
+    env = aas_json.environment_from_jsonable(
+        json.loads(decode_json_bytes(artifact.raw_bytes))
+    )
     g = Graph()
     g.bind("aas", AAS)
 

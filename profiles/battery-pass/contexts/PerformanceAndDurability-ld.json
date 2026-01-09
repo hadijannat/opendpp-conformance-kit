@@ -1,0 +1,1391 @@
+﻿{
+  "@graph" : [ {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PowerCapabilityAtSoc",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityFade",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityFade"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The capacity fade is the ´┐¢Decrease over time and upon usage in the amount of charge that a battery can deliver at the rated voltage, with respect to the original rated capacity´┐¢ (see BattReg Annex IV (2)) as declared by the manufacturer.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.4"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityFade",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityFadeEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TimeExtremeHighTemp",
+    "samm-c:unit" : {
+      "@id" : "unit:minuteUnitOfTime"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#MaximumVoltage",
+    "samm-c:unit" : {
+      "@id" : "unit:volt"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfCertifiedEnergyValue",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#timeExtremeLowTemp",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TimeExtremeLowTemp"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Cumulated time spent below the given lower boundary of temperature."
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TimeExtremeLowTemp",
+    "samm-c:unit" : {
+      "@id" : "unit:minuteUnitOfTime"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PowerCapabilityRatio",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Ratio between nominal allowed battery power (W) and battery energy (Wh)."
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingPowerCapability",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingPowerCapability"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "'- Original power capability (in Watts) and limits, with temperature range when relevant.\n- The amount of energy that a battery is capable to provide over a given period of time under reference conditions.\n- Power capability at 80% and 20% state of charge.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.3"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#nominalVoltage",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NominalVoltage"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Nominal voltage the battery is rated for.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.11"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NominalVoltage",
+    "samm-c:unit" : {
+      "@id" : "unit:volt"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "s"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#roundTripEfficiencyat50PerCentCycleLife",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RoundTripEfficiencyat50PerCentCycleLife"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Initial round trip energy efficiency shall be measured at reference conditions that include the specification of ´┐¢50 % of cycle-life´┐¢.\n\nTest methods and reference conditions should separately consider non-cycle applications and batteries with very long cycle-life.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.3\n"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RoundTripEfficiencyat50PerCentCycleLife",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lifetimeReferenceTest",
+    "samm:characteristic" : {
+      "@id" : "samm-c:ResourcePath"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The exception for non-cycle applications as mentioned in \"Expected lifetime: Number of charge-discharge cycles\" should apply to this data attribute as well.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.5"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#timeExtremeHighTemp",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TimeExtremeHighTemp"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Cumulated time spent above the given upper boundary of temperature."
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#stateOfCertifiedEnergy",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfCertifiedEnergy"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Definition based on UNECE GTR 22: The measured or on-board UBE performance at a specific point in its lifetime, expressed as a percentage of the certified usable battery energy.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.7"
+    },
+    "samm:preferredName" : {
+      "@language" : "en",
+      "@value" : "SOCE"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryCondition",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryConditionEntity"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "'- Expected battery lifetime expressed in cycles, and reference test used.\n- Their expected life-time under the reference conditions for which they have been designed in terms of cycles, except for non-cycle applications, and calendar years."
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryConditionEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#energyThroughput"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityThroughput"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#numberOfFullCycles"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#stateOfCertifiedEnergy"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityFade"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingEnergy"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingCapacity"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#negativeEvents"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#temperatureInformation"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingPowerCapability"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#powerFade"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#roundTripEfficiencyFade"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#evolutionOfSelfDischarge"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#currentSelfDischargingRate"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#internalResistanceIncrease"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#roundTripEfficiencyat50PerCentCycleLife"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingRoundTripEnergyEfficiency"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#stateOfCharge"
+      } ]
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Covers all battery lifetime relevant properties"
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#initialSelfDischarge",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InitialSelfDischarge"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Initial self-discharge in % of capacity per unit of time in defined conditions (temperature range etc) as pre-use metric. \n\nDIN DKE Spec 99100 chapter reference: 6.7.4.6"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InitialSelfDischarge",
+    "samm-c:unit" : {
+      "@id" : "unit:percentPerMonth"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfChargeValue",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "samm:preferredName" : {
+      "@language" : "en",
+      "@value" : "Value"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate",
+    "samm:characteristic" : {
+      "@id" : "samm-c:Timestamp"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Timestamp for dynamic data attributes show the last update time."
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CurrentInternalResistanceValue",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InternalResistanceIncreaseEntity"
+    },
+    "@type" : "samm-c:List"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InternalResistanceIncreaseEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#internalResistanceIncreaseValue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#batteryComponent"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#EvolutionOfSelfDischargeEntityValue",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#maximumVoltage",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#MaximumVoltage"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Maximum voltage the battery is rated for.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.10"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#rPCLastUpdated",
+    "samm:characteristic" : {
+      "@id" : "samm-c:Timestamp"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfCertifiedEnergy",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfCertifiedEnergyEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ratedCapacity",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RatedCapacity"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "´┐¢Rated capacity´┐¢ is the total number of ampere-hours (Ah) that can be withdrawn from a fully charged battery under reference conditions (see BattReg Annex IV (1)).\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.2"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RatedCapacity",
+    "samm-c:unit" : {
+      "@id" : "unit:ampereHour"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingRoundTripEnergyEfficiencyValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingRoundTripEnergyEfficiencyValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingRoundTripEnergyEfficiencyValue",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#atSoC",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#AtSoC"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RoundtripEfficiency",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#AtSoC",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingRoundTripEnergyEfficiencyEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingRoundTripEnergyEfficiencyValue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CRate",
+    "samm-c:unit" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#C"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#C",
+    "samm:symbol" : "C",
+    "@type" : "samm:Unit"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingEnergy",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingEnergyEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingEnergyEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingEnergyalue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#stateOfCertifiedEnergyValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfCertifiedEnergyValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NegativeEvents",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NegativeEventEntity"
+    },
+    "@type" : "samm-c:List"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NegativeEventEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#negativeEvent"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityThroughputValue",
+    "samm-c:unit" : {
+      "@id" : "unit:ampereHour"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#negativeEvent",
+    "samm:characteristic" : {
+      "@id" : "samm-c:Text"
+    },
+    "samm:preferredName" : {
+      "@language" : "en",
+      "@value" : "Negative events, such as accidents. No further definition provided by regulation."
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#timeExtremeHighTempCharging",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TimeExtremeHighTempCharging"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Cumulated time spent above the given upper boundary of temperature during Charging."
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#minimumVoltage",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#MinimumVoltage"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Minimum voltage the battery is rated for.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.9"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#MinimumVoltage",
+    "samm-c:unit" : {
+      "@id" : "unit:volt"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ratedMaximumPower",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RatedMaximumPower"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "This data point describes the value of maximum permitted power the battery is rated for and reflects the data relevant for power limits.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.2"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingPowerCapabilityValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingPowerCapabilityValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingPowerCapabilityValue",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingPowerCapabilityDynamicAt"
+    },
+    "samm:preferredName" : {
+      "@language" : "en",
+      "@value" : "RemainingPowerCapabilityValue"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#expectedNumberOfCycles",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ExpectedNumberOfCycles"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Expected battery lifetime expressed in cycles.\nThe exception for non-cycle applications in Article 10 appears sensible, but is not included in the Annex XIII provision.\nThe data attribute is defined by measurement conditions of the cycle-life test such as the C-Rate (see below) and the depth of discharge in the cycle-life test\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.3"
+    },
+    "samm:preferredName" : {
+      "@language" : "en",
+      "@value" : "ExpectedNumberOfCycles"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#stateOfCharge",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfCharge"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The Battery Pass consortium proposes to change the definition to: \"available capacity in a battery expressed as a percentage of remaining capacity\" to reflect use of SoC in practice.  \n\nDIN DKE Spec 99100 chapter reference: 6.7.2.8"
+    },
+    "samm:preferredName" : {
+      "@language" : "en",
+      "@value" : "SoC"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityThresholdForExhaustion",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityThresholdForExhaustion"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The percentage of SOCE, above which the battery is still considered operational as EV battery in its current life, as provided by the economic operator.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.9"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#roundtripEfficiency",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RoundtripEfficiency"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Energy round trip efficiency is the ratio of the net energy delivered by a battery during a discharge test to the total energy required to restore the initial state of charge by a standard charge (see BattReg Annex IV (6)).\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.2"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ExpectedLifeTime",
+    "samm-c:unit" : {
+      "@id" : "unit:year"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:short"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingPowerCapabilityEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingPowerCapabilityValue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#evolutionOfSelfDischargeEntityValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#EvolutionOfSelfDischargeEntityValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#temperatureRangeIdleState",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureRangeIdleStateTrait"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Upper an lower boundary of the surrounding temperature range, which the battery can safely withstand. \n\nDIN DKE Spec 99100 chapter reference: 6.7.6.3-4"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureRangeIdleStateTrait",
+    "samm-c:constraint" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureRange"
+    },
+    "samm-c:baseCharacteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureRangeIdleState"
+    },
+    "@type" : "samm-c:Trait"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#EnergyThroughput",
+    "samm-c:unit" : {
+      "@id" : "unit:kilowattHour"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityThroughputEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityThroughputValue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#initialInternalResistance",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InitialInternalResistance"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The battery passport can include additional information about the initial internal resistance on battery module level, if available. It should be defined and calculated analogously as the requirements on battery pack level above.\n\nDIN DKE Spec 99100 chapter reference: 6.7.5.2"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InitialInternalResistance",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InternalResistanceEntity"
+    },
+    "@type" : "samm-c:List"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#powerFade",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PowerFade"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "´┐¢Power fade (in %) means the decrease over time and upon usage in the amount of power that a battery can deliver at the rated voltage.´┐¢ (see BattReg Annex IV (4)).\n\nPower fade should be calculated using original and remaining power capability following the formula below:\nPfade(x) = (1-P(x)) / PBOL\" ´┐¢100\" %\" \nwhere\nx \tis the aging parameter (e.g. storage time, number of cycles, etc.);\nP(x) \tis the power capability at aging parameter x;\nPBOL \tis the power capability at begin of life.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.4"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PowerFade",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#powerCapabilityRatio",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PowerCapabilityRatio"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Provides information on nominal/recommended charge rate (C-rate); equal to regulation definition."
+    },
+    "samm:preferredName" : {
+      "@language" : "en",
+      "@value" : "PowerCapabilityRatio"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingRoundTripEnergyEfficiency",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingRoundTripEnergyEfficiency"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The battery passport shall include information, where possible, about the remaining round trip energy efficiency as information on the state of health of the battery \n\nThe update frequency of remaining round trip energy efficiency should be aligned with the update frequency of round trip energy efficiency fade and should be provided upon change of the battery status.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.4"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingPowerCapability",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingPowerCapabilityEntity"
+    },
+    "@type" : "samm-c:List"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ExpectedNumberOfCycles",
+    "samm-c:unit" : {
+      "@id" : "unit:cycle"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:long"
+    },
+    "@type" : "samm-c:Quantifiable"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#OriginalPowerCapabilityAtSoC",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PowerCapabilityAtEntity"
+    },
+    "@type" : "samm-c:List"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PowerCapabilityAtEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#atSoC"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#powerCapabilityAt"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityThroughput",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityThroughput"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The data attribute should be reported as measured for further potential processing. In addition, the normalisation by capacity may add a further useful value that ensures comparability among battery sizes.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.8"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#expectedLifetime",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ExpectedLifeTime"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The battery passport must include information about the expected battery lifetime in calendar years.\n\nThe update interval must be upon placement on the market and upon change of the battery status.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.2"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#evolutionOfSelfDischarge",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#EvolutionOfSelfDischarge"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "´┐¢Evolution of self-discharge rates´┐¢ is the change of self-discharge over time and usage, as percentage calculated from the initial and current self-discharge rate.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.8"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#EvolutionOfSelfDischarge",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#EvolutionOfSelfDischargeEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingEnergy",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingEnergy"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Definition from UNECE GTR 22, applicable only to EVs.\nThe energy supplied by the battery from the beginning of the test procedure used for certification until the applicable break-off criterion of the test procedure used for certification is reached.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.6"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingEnergyalue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#UBERemainingValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#powerCapabilityAt",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PowerCapabilityAtSoc"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#negativeEvents",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NegativeEvents"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityThroughput",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityThroughputEntity"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Capacity throughput."
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PerformanceAndDurability",
+    "samm:events" : {
+      "@list" : [ ]
+    },
+    "samm:operations" : {
+      "@list" : [ ]
+    },
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#batteryTechicalProperties"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#batteryCondition"
+      } ]
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Battery performance and durability data model\n\nCopyright ? 2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is li-censed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold com-mercially and is given appropriate attribution."
+    },
+    "@type" : "samm:Aspect"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InternalResistanceIncreaseValue",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "_:b46",
+    "samm:optional" : {
+      "@value" : "true",
+      "@type" : "xsd:boolean"
+    },
+    "samm:property" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#cRate"
+    }
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityFadeEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityFadeValue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#batteryComponent",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryComponent"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingRoundTripEnergyEfficiency",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingRoundTripEnergyEfficiencyEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ohmicResistance",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#OhimcResistance"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Initial (Pre-Use) internal resistance on battery pack level. \n\nDefinition of internal resistance should differ from regulation definition, as \"opposition\" is not an electrotechnical term and may be based on IEV 131-12-04: \"internal resistance means the absolute value of the quotient of the voltage drop between the terminals by the electric current increase in the battery circuit during a current pulse\""
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#OhimcResistance",
+    "samm-c:unit" : {
+      "@id" : "unit:ohm"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#cRate",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CRate"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "As a non-mandatory data point the battery passport should include the ratio between nominal battery power in W and battery energy in Wh. It aims to provide an indication of the applicable discharge and charge rate in terms of rated capacity (C-rate) (see BattReg Annex IV Part B(2)).\n\nThe update interval should be upon placement on the market and upon change of the battery status.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.6"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingCapacityEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingCapacityValue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureRange",
+    "samm-c:upperBoundDefinition" : {
+      "@id" : "samm-c:AT_MOST"
+    },
+    "samm-c:lowerBoundDefinition" : {
+      "@id" : "samm-c:AT_LEAST"
+    },
+    "samm-c:maxValue" : {
+      "@value" : "+60.0",
+      "@type" : "xsd:double"
+    },
+    "samm-c:minValue" : {
+      "@value" : "-20.0",
+      "@type" : "xsd:double"
+    },
+    "@type" : "samm-c:RangeConstraint"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureRangeIdleState",
+    "samm-c:unit" : {
+      "@id" : "unit:degreeCelsius"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingCapacity",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingCapacity"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The in-use data attribute on capacity, corresponding with the definition of rated capacity.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.3"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingCapacity",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingCapacityEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#UBERemainingValue",
+    "samm-c:unit" : {
+      "@id" : "unit:kilowattHour"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#stateOfChargeValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfChargeValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityFadeValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityFadeValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityFadeValue",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CurrentSelfDischargingRateEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#currentSelfDischargingRateEntity"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#remainingCapacityValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingCapacityValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryTechnicalProperties",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryTechnicalPropertiesEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryTechnicalPropertiesEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#originalPowerCapability"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ratedMaximumPower"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#powerCapabilityRatio"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ratedEnergy"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#expectedNumberOfCycles"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#initialSelfDischarge"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#roundtripEfficiency"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ratedCapacity"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#initialInternalResistance"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#expectedLifetime"
+      }, {
+        "@id" : "_:b46"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#nominalVoltage"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#minimumVoltage"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#maximumVoltage"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityThresholdForExhaustion"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lifetimeReferenceTest"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#cRateLifeCycleTest"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#temperatureRangeIdleState"
+      } ]
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Covers all Capability related data attributes"
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CRateLifeCycleTest",
+    "samm-c:unit" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#C"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Quantifiable"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#batteryTechicalProperties",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryTechnicalProperties"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "This property covers all perfromance related properties"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityThresholdForExhaustion",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InternalResistanceEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ohmicResistance"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#batteryComponent"
+      } ]
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The internal resistance is ´┐¢a quotient of change of voltage of a battery by the corresponding change in discharge current under specified conditions´┐¢ (IEV 482 03 36)."
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfCertifiedEnergyEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#stateOfCertifiedEnergyValue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#timeExtremeLowTempCharging",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TimeExtremeLowTempCharging"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Cumulated time spent below the given lower boundary of temperature during charging."
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TimeExtremeLowTempCharging",
+    "samm-c:unit" : {
+      "@id" : "unit:minuteUnitOfTime"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#capacityThroughputValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CapacityThroughputValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingCapacityValue",
+    "samm-c:unit" : {
+      "@id" : "unit:kilowattHour"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryComponent",
+    "samm-c:values" : {
+      "@list" : [ "pack", "module", "cell" ]
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:string"
+    },
+    "@type" : "samm-c:Enumeration"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#currentSelfDischargingRate",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CurrentSelfDischargingRate"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The current self-discharge rate is the change of the self-discharge rate in an idle state of the battery in reference conditions (temperature etc.) at aging parameter x, e.g. after a certain amount of storage time or, number of cycles.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.7"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CurrentSelfDischargingRate",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CurrentSelfDischargingRateEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#cRateLifeCycleTest",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CRateLifeCycleTest"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The C-rate should be provided separately for both the charge and discharge of the battery, if applicable.\n\nThe exception for non-cycle applications as mentioned in \"Expected lifetime: Number of charge-discharge cycles\" should apply to this data attribute as well.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.6"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RoundTripEfficienyFade",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Art. 10: Annex IV Part A (4) (only definition); Article 14: Annex VII Part A (3)"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#ratedEnergy",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RatedEnergy"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The certified usable battery energy is the usable battery energy according to the procedure in the UN GTR No 22 as determined during the certification of the vehicle.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.5"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RatedMaximumPower",
+    "samm-c:unit" : {
+      "@id" : "unit:kilowatt"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RatedEnergy",
+    "samm-c:unit" : {
+      "@id" : "unit:kilowattHour"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NumberOfFullCyclesValue",
+    "samm-c:unit" : {
+      "@id" : "unit:cycle"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:integer"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureConditionsEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#timeExtremeHighTemp"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#timeExtremeLowTemp"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#timeExtremeHighTempCharging"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#timeExtremeLowTempCharging"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#originalPowerCapability",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#OriginalPowerCapabilityAtSoC"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Pre-use power capability: Definition of power capability as given in Battery Regulation. \nAnnex IV Part B, point 4 --> measurement at 80 % and 20 % SoC required. This requirement may not be implementable for remaining power capability and power fade(see below). It, thus, should be reviewed together with SoC definition.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.2\n\n"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#temperatureInformation",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureInformation"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The battery passport must include periodically recorded information on the operating environmental conditions, including temperature.\n\nDIN DKE Spec 99100 chapter reference: 6.7.7.5 - 8"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureInformation",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TemperatureConditionsEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfChargeEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#stateOfChargeValue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#roundTripEfficiencyFade",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RoundTripEfficienyFade"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Energy round trip efficiency fade should be calculated using the initial round trip energy efficiency and remaining round trip energy efficiency following the formula below:\n\nRTEfade (x) = (1-RTE(x)) / RTEBOL  ´┐¢100\" %\" \nwhere\nx \tis the aging parameter (e.g. storage time, number of cycles, etc.);\nRTE(x) \tis the round trip energy efficiency at aging parameter x;\nRTEBOL \tis the round trip energy efficiency at begin of life.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.5"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CurrentSelfDischargingRateValue",
+    "samm-c:unit" : {
+      "@id" : "unit:percent"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:float"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NumberOfFullCycles",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NumberOfFullCyclesEntity"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "- Information and data as a result of its use, including the number of charging and discharging cycles."
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NumberOfFullCyclesEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#numberOfFullCyclesValue"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#lastUpdate"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#currentSelfDischargingRateEntity",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CurrentSelfDischargingRateValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#numberOfFullCyclesValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NumberOfFullCyclesValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#internalResistanceIncrease",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#CurrentInternalResistanceValue"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The internal resistance increase over time and upon usage should be defined based on the ratio of current and initial values as follows:\nRincrease(x) = (R(x)  - RBOL) / RBOL ´┐¢ 100 %\nwhere\nx \tis the aging parameter (e.g. storage time, number of cycles, etc.;);\nR(x)\tis the internal resistance at the aging parameter x; and\nRBOL\tis the internal resistance at begin of life.\n\nThe battery passport can include additional information about the internal resistance increase on battery cell and battery module level, if available. It should be defined and calculated analogously to the requirements on battery pack level above.\n\nDIN DKE Spec 99100 chapter reference: 6.7.5.3"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#EvolutionOfSelfDischargeEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#evolutionOfSelfDischargeEntityValue"
+      } ]
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#energyThroughput",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#EnergyThroughput"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "The data attribute should be reported as measured for further potential processing. In addition, the normalisation by capacity may add a further useful value that ensures comparability among battery sizes.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.7"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#TimeExtremeHighTempCharging",
+    "samm-c:unit" : {
+      "@id" : "unit:minuteUnitOfTime"
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:double"
+    },
+    "@type" : "samm-c:Measurement"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#RemainingPowerCapabilityDynamicAt",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#rPCLastUpdated"
+      } ]
+    },
+    "samm:extends" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#PowerCapabilityAtEntity"
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#batteryCondition",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#BatteryCondition"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "'- Expected battery lifetime expressed in cycles, and reference test used.\n- Their expected life-time under the reference conditions for which they have been designed in terms of cycles, except for non-cycle applications, and calendar years."
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#internalResistanceIncreaseValue",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#InternalResistanceIncreaseValue"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfCharge",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#StateOfChargeEntity"
+    },
+    "@type" : "samm-c:SingleEntity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#numberOfFullCycles",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Performance:1.2.0#NumberOfFullCycles"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Number of (full) charging and discharging cycles.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.3"
+    },
+    "@type" : "samm:Property"
+  } ],
+  "@context" : {
+    "samm-e" : "urn:samm:org.eclipse.esmf.samm:entity:2.1.0#",
+    "unit" : "urn:samm:org.eclipse.esmf.samm:unit:2.1.0#",
+    "samm-c" : "urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "samm" : "urn:samm:org.eclipse.esmf.samm:meta-model:2.1.0#",
+    "@vocab" : "urn:samm:io.BatteryPass.Performance:1.2.0#"
+  }
+}

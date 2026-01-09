@@ -6,6 +6,7 @@ import yaml
 from jsonpath_ng import parse as jsonpath_parse
 
 from opendpp.core.artifact import Artifact, ArtifactType
+from opendpp.core.codec import decode_json_bytes
 from opendpp.core.report import ConformanceReport, Severity
 
 
@@ -51,7 +52,7 @@ class PolicyEngine:
             return
 
         try:
-            data = json.loads(target.raw_bytes)
+            data = json.loads(decode_json_bytes(target.raw_bytes))
             selectors = selector if isinstance(selector, list) else [selector]
             matches: list[Any] = []
             for sel in selectors:

@@ -1,20 +1,45 @@
 id: battery-pass
 version: 1.2.0
-description: BatteryPass GeneralProductInformation 1.2.0 profile (schema + OpenAPI + RDF context).
+description: BatteryPass multi-aspect profile (GeneralProductInformation + additional aspects).
 entrypoint_media_types:
   - application/json
   - application/ld+json
 artifacts:
   schemas:
     - schemas/GeneralProductInformation-schema.json
-  shapes: []
+    - schemas/PerformanceAndDurability-schema.json
+    - schemas/Circularity-schema.json
+    - schemas/MaterialComposition-schema.json
+    - schemas/CarbonFootprintForBatteries-schema.json
+    - schemas/SupplyChainDueDiligence-schema.json
+    - schemas/Labeling-schema.json
+  shapes:
+    - shapes/battery_pass_minimal.shapes.ttl
   openapi:
     - openapi/GeneralProductInformation_openapi3_0.yaml
+    - openapi/PerformanceAndDurability_openapi3_0.json
+    - openapi/Circularity_openapi3_0.json
+    - openapi/MaterialComposition_openapi3_0.json
+    - openapi/CarbonFootprintForBatteries_openapi3_0.json
+    - openapi/SupplyChainDueDiligence_openapi3_0.json
+    - openapi/Labeling_openapi3_0.json
   rules:
     - rules/battery_policy.yaml
   contexts:
     - contexts/GeneralProductInformation-ld.json
     - contexts/GeneralProductInformation.ttl
+    - contexts/PerformanceAndDurability-ld.json
+    - contexts/PerformanceAndDurability.ttl
+    - contexts/Circularity-ld.json
+    - contexts/Circularity.ttl
+    - contexts/MaterialComposition-ld.json
+    - contexts/MaterialComposition.ttl
+    - contexts/CarbonFootprintForBatteries-ld.json
+    - contexts/CarbonFootprintForBatteries.ttl
+    - contexts/SupplyChainDueDiligence-ld.json
+    - contexts/SupplyChainDueDiligence.ttl
+    - contexts/Labeling-ld.json
+    - contexts/Labeling.ttl
 trust:
   allowed_issuers: []
   vc_formats:

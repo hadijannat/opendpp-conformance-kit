@@ -1,0 +1,132 @@
+﻿{
+  "@graph" : [ {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#labelingSubject",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#LabelingSubject"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Short name of required labeling subjects"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#LabelingSubject",
+    "samm-c:values" : {
+      "@list" : [ "SeparateCollection", "HazardousMaterial", "CarbonFootPrint", "ExtinguishingAgent" ]
+    },
+    "samm:dataType" : {
+      "@id" : "xsd:string"
+    },
+    "@type" : "samm-c:Enumeration"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#declarationOfConformity",
+    "samm:characteristic" : {
+      "@id" : "samm-c:ResourcePath"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "A battery passport must include the EU declaration of conformity.\n\nThe regulation specifies the following requirements regarding the EU declaration of conformity (see BattReg Annex XIII (1r) and BattReg Article 18 (2)):\n\n- The EU declaration of conformity has the model structure set out in Annex IX.\n- The EU declaration of conformity must contain the elements specified in the relevant modules set out in Annex VIII.\n- The EU declaration of conformity must be kept up to date.\n- It is translated into the language or languages required by the Member State in which the battery is placed or made available on the market or put into service.\n- It must be drawn up in electronic format and, where requested, it must be provided in paper format.\n\nDIN DKE Spec chapter reference: 6.2.7"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#resultOfTestReport",
+    "samm:characteristic" : {
+      "@id" : "samm-c:ResourcePath"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "URL to a document that includes results of tests reports proving compliance in the market conformity assessment procedure with the requirements as per the technical documentation (Art. 7-10, Art. 12-14 and due diligence policies ).\n\nDIN DKE Spec chapter reference 6.2.8"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#LabelingEntity",
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#labelingSymbol"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#labelingMeaning"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#labelingSubject"
+      } ]
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Entity for the definition required battery labeling"
+    },
+    "@type" : "samm:Entity"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#Labels",
+    "samm:dataType" : {
+      "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#LabelingEntity"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "List of labels"
+    },
+    "@type" : "samm-c:List"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#labels",
+    "samm:characteristic" : {
+      "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#Labels"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "'Separate collection' or 'WEEE label' indicating that a product should not be discarded as unsorted waste but must be sent to separate collection facilities for recovery and recycling. To be printed on the physical label and displayed via the battery passport, suggested to be translated also to text to ensure machine readability.\n\nDIN DKE Spec chapter reference: \n\n6.2.2 Separate collection\n6.2.3 Material symbol for Cadmium and Lead\n6.2.4 Carbon Footprint perfromance class\n6.2.5 Extinguishing agent"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#labelingMeaning",
+    "samm:exampleValue" : {
+      "@language" : "en",
+      "@value" : "Separate Collection"
+    },
+    "samm:characteristic" : {
+      "@id" : "samm-c:MultiLanguageText"
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Explanation of the meaning of all symbols and labels (including separate collection; cadmium and lead; and carbon footprint and carbon footprint performance class symbols; and symbols and labels printed on batteries or their accompanying documents but not accessible via the battery passport)."
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#labelingSymbol",
+    "samm:characteristic" : {
+      "@id" : "samm-c:ResourcePath"
+    },
+    "@type" : "samm:Property"
+  }, {
+    "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#Labeling",
+    "samm:events" : {
+      "@list" : [ ]
+    },
+    "samm:operations" : {
+      "@list" : [ ]
+    },
+    "samm:properties" : {
+      "@list" : [ {
+        "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#declarationOfConformity"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#resultOfTestReport"
+      }, {
+        "@id" : "urn:samm:io.BatteryPass.Labels:1.2.0#labels"
+      } ]
+    },
+    "samm:description" : {
+      "@language" : "en",
+      "@value" : "Data model for battery labels and conformity\n\nCopyright 2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is li-censed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold com-mercially and is given appropriate attribution."
+    },
+    "@type" : "samm:Aspect"
+  } ],
+  "@context" : {
+    "samm-e" : "urn:samm:org.eclipse.esmf.samm:entity:2.1.0#",
+    "unit" : "urn:samm:org.eclipse.esmf.samm:unit:2.1.0#",
+    "samm-c" : "urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ext-digitaltwin2" : "urn:samm:org.eclipse.digitaltwin:1.2.0#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "samm" : "urn:samm:org.eclipse.esmf.samm:meta-model:2.1.0#",
+    "ext-digitaltwin" : "urn:samm:org.eclipse.digitaltwin:1.0.0#",
+    "@vocab" : "urn:samm:io.BatteryPass.Labels:1.2.0#"
+  }
+}

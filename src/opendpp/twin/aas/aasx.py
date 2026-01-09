@@ -7,6 +7,7 @@ from aas_core3 import jsonization as aas_json
 from aas_core3 import types as aas_types
 
 from opendpp.core.artifact import Artifact, ArtifactType
+from opendpp.core.codec import decode_json_bytes
 
 
 def parse_aas_json(artifact: Artifact) -> aas_types.Environment:
@@ -14,7 +15,7 @@ def parse_aas_json(artifact: Artifact) -> aas_types.Environment:
     if artifact.artifact_type != ArtifactType.AAS_PAYLOAD:
         raise ValueError("Artifact is not AAS JSON")
 
-    data = json.loads(artifact.raw_bytes)
+    data = json.loads(decode_json_bytes(artifact.raw_bytes))
     environment = aas_json.environment_from_jsonable(data)
     return environment
 

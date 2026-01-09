@@ -1,13 +1,13 @@
 rules:
   - id: BP-01
-    name: Product Identifier
-    severity: error
+    name: Product Identifier (advisory)
+    severity: warning
     selector: "$.productIdentifier"
     assertion: "exists"
-    message: "BatteryPass payload must include productIdentifier."
+    message: "BatteryPass payload should include productIdentifier where applicable."
   - id: BP-02
-    name: Battery Passport Identifier
-    severity: error
+    name: Battery Passport Identifier (advisory)
+    severity: warning
     selector: "$.batteryPassportIdentifier"
     assertion: "exists"
-    message: "BatteryPass payload must include batteryPassportIdentifier."
+    message: "BatteryPass payload should include batteryPassportIdentifier where applicable."

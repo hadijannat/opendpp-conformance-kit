@@ -88,7 +88,7 @@ Validation logic is driven by **Profile Packs** — self-contained folders with 
 | Profile | Description |
 | :--- | :--- |
 | `espr-core` | Generic ESPR (EU Ecodesign Regulation) baseline checks. |
-| `battery-pass` | Deep validation for BatteryPass data models (JSON-LD, SHACL). |
+| `battery-pass` | Multi-aspect BatteryPass validation (GeneralProductInformation, PerformanceAndDurability, Circularity, MaterialComposition, CarbonFootprintForBatteries, SupplyChainDueDiligence, Labeling). |
 
 ### Custom Profiles
 

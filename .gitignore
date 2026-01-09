@@ -44,6 +44,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 pytestdebug.log
+report_artifacts/
 
 # Translations
 *.mo

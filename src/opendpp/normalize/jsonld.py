@@ -5,6 +5,7 @@ from pyld import jsonld
 from rdflib import Graph
 
 from opendpp.core.artifact import Artifact, ArtifactType
+from opendpp.core.codec import decode_json_bytes
 
 
 def expand_jsonld(artifact: Artifact) -> list[dict[str, Any]]:
@@ -15,7 +16,7 @@ def expand_jsonld(artifact: Artifact) -> list[dict[str, Any]]:
     ]:
         raise ValueError("Artifact is not JSON-LD")
 
-    data = json.loads(artifact.raw_bytes)
+    data = json.loads(decode_json_bytes(artifact.raw_bytes))
     expanded: list[dict[str, Any]] = jsonld.expand(data)
     return expanded
 

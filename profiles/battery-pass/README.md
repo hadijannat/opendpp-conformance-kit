@@ -1,17 +1,27 @@
 # BatteryPass Profile
 
-This profile targets the BatteryPass `GeneralProductInformation` aspect
-(version 1.2.0) and wires in the upstream JSON Schema and OpenAPI artifacts.
+This profile targets BatteryPass aspect models (version 1.2.0) and wires in
+upstream JSON Schema and OpenAPI artifacts for each aspect.
 
-Included artifacts:
-- `schemas/GeneralProductInformation-schema.json`
-- `openapi/GeneralProductInformation_openapi3_0.yaml`
-- `contexts/GeneralProductInformation-ld.json` (JSON-LD export)
-- `contexts/GeneralProductInformation.ttl` (SAMM/RDF model)
+Included aspects:
+- GeneralProductInformation
+- PerformanceAndDurability
+- Circularity
+- MaterialComposition
+- CarbonFootprintForBatteries
+- SupplyChainDueDiligence
+- Labeling
+
+Artifacts:
+- `schemas/*.json` JSON Schemas per aspect
+- `openapi/*_openapi3_0.*` OpenAPI specs per aspect
+- `contexts/*-ld.json` JSON-LD exports (SAMM)
+- `contexts/*.ttl` RDF/SAMM aspect models
+- `shapes/battery_pass_minimal.shapes.ttl` minimal SHACL constraints for AAS RDF
 
 Test vectors:
-- `testvectors/positive/GeneralProductInformation-payload.json`
-- `testvectors/positive/GeneralProductInformation.aas`
-- `testvectors/positive/GeneralProductInformation.aasx`
+- `testvectors/positive/*.json`
+- `testvectors/positive/*.aas`
+- `testvectors/positive/*.aasx`
 
 See `NOTICE.md` for licensing and attribution details.

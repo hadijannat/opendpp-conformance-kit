@@ -1,0 +1,13 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix aas: <https://admin-shell.io/aas/3/0/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Minimal SHACL constraints for AAS-derived RDF.
+
+[] a sh:NodeShape ;
+   sh:targetClass aas:AssetAdministrationShell ;
+   sh:property [
+     sh:path aas:id ;
+     sh:datatype xsd:string ;
+     sh:minCount 1 ;
+   ] .
