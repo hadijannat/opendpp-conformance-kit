@@ -1,55 +1,45 @@
-import requests
+from __future__ import annotations
+
 import hashlib
-from typing import Optional, Dict, Any
-from opendpp.core.artifact import Artifact, ArtifactType
+from dataclasses import dataclass
+from typing import Optional
+
+import requests
+
+
+@dataclass
+class Artifact:
+    uri: str
+    content_type: Optional[str]
+    sha256: str
+    artifact_type: str
+
 
 class HttpFetcher:
-    def __init__(self, timeout: int = 20, max_redirects: int = 5):
-        self.session = requests.Session()
+    def __init__(self, timeout: int = 15) -> None:
         self.timeout = timeout
-        self.max_redirects = max_redirects
-        self.session.max_redirects = max_redirects
 
-    def fetch(self, url: str, headers: Optional[Dict[str, str]] = None) -> Artifact:
-        """Fetches an artifact via HTTP with content negotiation."""
-        default_headers = {
-            "Accept": "application/ld+json, application/json, application/vc+json, text/turtle, */*"
+    def fetch(self, url: str) -> Artifact:
+        headers = {
+            "Accept": "application/ld+json, application/json, */*;q=0.1",
+            "User-Agent": "opendpp-conformance-kit/0.1",
         }
-        if headers:
-            default_headers.update(headers)
-
-        response = self.session.get(url, headers=default_headers, timeout=self.timeout)
+        response = requests.get(url, headers=headers, timeout=self.timeout, allow_redirects=True)
         response.raise_for_status()
 
-        content = response.content
-        sha256 = hashlib.sha256(content).hexdigest()
-        
-        content_type = response.headers.get("Content-Type", "").split(";")[0]
-        
-        # Determine artifact type from content type
-        artifact_type = self._map_content_type(content_type, content)
+        content = response.content or b""
+        digest = hashlib.sha256(content).hexdigest()
+        content_type = response.headers.get("Content-Type")
+        artifact_type = "binary"
+        if content_type:
+            if "application/ld+json" in content_type:
+                artifact_type = "jsonld"
+            elif "application/json" in content_type:
+                artifact_type = "json"
 
         return Artifact(
-            uri=url,
+            uri=response.url,
             content_type=content_type,
+            sha256=digest,
             artifact_type=artifact_type,
-            raw_bytes=content,
-            sha256=sha256,
-            metadata={
-                "headers": dict(response.headers),
-                "final_url": response.url,
-                "status_code": response.status_code
-            }
         )
-
-    def _map_content_type(self, content_type: str, content: bytes) -> ArtifactType:
-        if "json" in content_type:
-            # Check for @context to see if it's JSON-LD
-            if b"@context" in content:
-                return ArtifactType.JSONLD_CONTEXT if content_type == "application/ld+json" else ArtifactType.DPP_PAYLOAD
-            return ArtifactType.DPP_PAYLOAD
-        if "turtle" in content_type or "ntriples" in content_type:
-            return ArtifactType.RDF_GRAPH
-        if "xml" in content_type:
-            return ArtifactType.AAS_PAYLOAD
-        return ArtifactType.DPP_PAYLOAD

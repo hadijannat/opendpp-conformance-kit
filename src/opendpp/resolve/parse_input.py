@@ -1,34 +1,54 @@
+from __future__ import annotations
+
+import os
 import re
 from enum import Enum
-from typing import Optional, Union, Tuple
-from pathlib import Path
+from urllib.parse import ParseResult, urlparse
+
 
 class InputType(str, Enum):
     URL = "url"
     DIGITAL_LINK = "digital_link"
-    FILE_PATH = "file_path"
     DID = "did"
-    UNKNOWN = "unknown"
+    FILE = "file"
 
-def parse_input(input_str: str) -> Tuple[InputType, str]:
-    """Recognizes the type of input and returns (type, canonical_form)."""
-    input_str = input_str.strip()
 
-    # Recognize GS1 Digital Link
-    # Regex for plausibly a Digital Link (contains identifier keys like /01/, /21/, etc.)
-    if re.search(r'/(01|21|10|11|17|240|414|417|422|8003|8004|8006|8010|8017|8018)/', input_str):
-        return InputType.DIGITAL_LINK, input_str
+def _is_probable_url(value: str) -> bool:
+    return value.startswith("http://") or value.startswith("https://")
 
-    # Recognize URL
-    if input_str.startswith(("http://", "https://")):
-        return InputType.URL, input_str
 
-    # Recognize DID
-    if input_str.startswith("did:"):
-        return InputType.DID, input_str
+def _is_digital_link(parsed_url: ParseResult) -> bool:
+    host = parsed_url.netloc.lower()
+    if host.endswith("id.gs1.org"):
+        return True
 
-    # Recognize File Path
-    if Path(input_str).exists() or input_str.endswith((".json", ".xml", ".aasx", ".ttl")):
-        return InputType.FILE_PATH, str(Path(input_str).absolute())
+    # GS1 Digital Link commonly includes the GTIN (AI 01) path segment.
+    if re.search(r"/01/\d{8,14}(?:/|$)", parsed_url.path):
+        return True
 
-    return InputType.UNKNOWN, input_str
+    return False
+
+
+def parse_input(raw: str) -> tuple[InputType, str]:
+    """Determine the input type and return a canonical target string."""
+    value = raw.strip()
+    if value.lower().startswith("did:"):
+        return InputType.DID, value
+
+    if _is_probable_url(value):
+        parsed = urlparse(value)
+        if _is_digital_link(parsed):
+            return InputType.DIGITAL_LINK, value
+        return InputType.URL, value
+
+    if value.startswith("file://"):
+        path = value[7:]
+        if os.path.exists(path):
+            return InputType.FILE, path
+        return InputType.FILE, path
+
+    if os.path.exists(value):
+        return InputType.FILE, value
+
+    # Default to URL for unknown identifiers that may be resolvable.
+    return InputType.URL, value

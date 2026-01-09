@@ -1,5 +1,5 @@
 import re
-from typing import Dict, List, Optional
+from typing import Dict
 from urllib.parse import urlparse, parse_qs
 
 # Application Identifiers (AI) commonly used in Digital Link
